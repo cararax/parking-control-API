@@ -1,7 +1,10 @@
 package com.carara.parkingcontrol.services;
 
+import com.carara.parkingcontrol.models.ParkingSpotModel;
 import com.carara.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 public class ParkingSpotService {
@@ -12,4 +15,8 @@ public class ParkingSpotService {
         this.parkingSpotRepository = parkingSpotRepository;
     }
 
+    @Transactional
+    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
+        return parkingSpotRepository.save(parkingSpotModel);
+    }
 }
